@@ -37,7 +37,7 @@ class ApiRequestComponent extends Component
         }
 
         $allowedContentTypes = $this->getConfig('allowedContentTypes');
-        if($controller->request->is(['put', 'post', 'patch'])
+        if($controller->request->requestedWith(['put', 'post', 'patch'])
         && $allowedContentTypes
         && !in_array($controller->request->getHeaderLine('Content-Type'), $allowedContentTypes)){
             throw new BadRequestException(sprintf(
