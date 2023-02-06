@@ -1,5 +1,5 @@
 {
-    "name": "PowerSystem/cakeapigateway",
+    "name": "powersystem/cakeapigateway",
     "description": "ApiGatewaySDK plugin for CakePHP",
     "type": "cakephp-plugin",
     "license": "MIT",
