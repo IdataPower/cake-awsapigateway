@@ -30,24 +30,24 @@ class ApiRequestComponent extends Component
             }
 
             $config_apigateway_id = Configure::read('ApiGatewaySDK.api_id');
-            $header_apigateway_id = $controller->request->getHeaderLine('X-Amzn-Apigateway-Api-Id');
+            $header_apigateway_id = $controller->getRequest()->getHeaderLine('X-Amzn-Apigateway-Api-Id');
             if($header_apigateway_id !== $config_apigateway_id){
                 throw new BadRequestException('The APIGateway header is missing or incorrect');
             }
         }
 
         $allowedContentTypes = $this->getConfig('allowedContentTypes');
-        if($controller->request->requestedWith(['put', 'post', 'patch'])
+        if($controller->getRequest()->is(['put', 'post', 'patch'])
         && $allowedContentTypes
-        && !in_array($controller->request->getHeaderLine('Content-Type'), $allowedContentTypes)){
+        && !in_array($controller->getRequest()->getHeaderLine('Content-Type'), $allowedContentTypes)){
             throw new BadRequestException(sprintf(
                 __d('ApiGatewaySDK', '%s requests only allow the following Content-Type headers: %s'),
-                $controller->request->getMethod(),
+                $controller->getRequest()->getMethod(),
                 implode(', ', $allowedContentTypes)
             ));
         }
 
-        if($controller->request->getHeaderLine('Accept') !== 'application/json'){
+        if($controller->getRequest()->getHeaderLine('Accept') !== 'application/json'){
             throw new BadRequestException(
                 __d('ApiGatewaySDK', 'API requests require Header "Accept: application/json"')
             );
@@ -64,7 +64,7 @@ class ApiRequestComponent extends Component
         unset($controller->viewVars['_apiRoute']);
 
         /* CORS Headers */
-        $event->getSubject()->response->cors($controller->request)
+        $event->getSubject()->getResponse()->cors($controller->getRequest())
             ->allowOrigin(['*'])
             ->allowMethods(['*'])
             ->allowHeaders([
@@ -83,7 +83,7 @@ class ApiRequestComponent extends Component
             ->build();
 
         /* Paging */
-        $paging = $controller->request->getParam('paging', false);
+        $paging = $controller->getRequest()->getParam('paging', false);
         if($paging && !empty($paging[$controller->modelClass])){
             $controller->set([
                 'paging'    => [
@@ -102,7 +102,7 @@ class ApiRequestComponent extends Component
             /* Link Headers */
             $link_headers = $this->getLinkHeaders($paging[$controller->modelClass], $controller);
             if(!empty($link_headers)){
-                $this->response = $this->response->withHeader('Link', $link_headers);
+                $this->response = $this->getResponse()->withHeader('Link', $link_headers);
             }
         }
 
@@ -117,7 +117,7 @@ class ApiRequestComponent extends Component
         if(!$paging || $paging['pageCount'] === 1) return '';
 
         $getUrlWithPage = function($page) use ($controller){
-            $route = $this->_apiRoute ?? Router::parseRequest($controller->request);
+            $route = $this->_apiRoute ?? Router::parseRequest($controller->getRequest());
             $route['?']['page'] = $page;
             return Router::reverse($route, true);
         };

@@ -3,12 +3,77 @@
   <component name="issues">
     <option name="index">
       <map>
+        <entry key="$PROJECT_DIR$/../cake-cognito/composer.json">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../cake-cognito/src/CognitoSDKActivator.php">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/README.md">
           <value>
             <set />
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/composer.json">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/Controller/Component/ApiRequestComponent.php">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="C:/idata-suite/.docker/idata-suite-core-php8/dockerfile">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="C:/idata-suite/repos/idata-suite-core-php8/composer.json">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="C:/idata-suite/repos/idata-suite-core-php8/config/bootstrap.php">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="C:/idata-suite/repos/idata-suite-core-php8/src/Application.php">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="C:/idata-suite/repos/idata-suite-core-php8/src/Controller/Api/V1/AppController.php">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="C:/idata-suite/repos/idata-suite-core-php8/vendor/cakephp-plugins.php">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="C:/idata-suite/repos/idata-suite-core-php8/vendor/cakephp/debug_kit/src/Middleware/DebugKitMiddleware.php">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="C:/idata-suite/repos/idata-suite-core-php8/vendor/powersystem/cakeapigateway/composer.json">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="C:/idata-suite/repos/idata-suite-core-php8/vendor/powersystem/cakeapigateway/src/Controller/Component/ApiRequestComponent.php">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="C:/idata-suite/repos/idata-suite-core/config/bootstrap.php">
           <value>
             <set />
           </value>
