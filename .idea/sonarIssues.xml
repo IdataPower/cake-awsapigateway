@@ -28,6 +28,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/Error/ApiExceptionRenderer.php">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="C:/idata-suite/.docker/idata-suite-core-php8/dockerfile">
           <value>
             <set />

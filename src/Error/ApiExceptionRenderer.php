@@ -9,9 +9,9 @@ class ApiExceptionRenderer extends ExceptionRenderer
     public function UnprocessableEntity($exception)
     {
         $message = $this->_message($exception, $exception->getCode());
-        $url = $this->controller->request->getRequestTarget();
-        $this->controller->response->header($exception->responseHeader());
-        $this->controller->response->statusCode($exception->getCode());
+        $url = $this->controller->getRequest()->getRequestTarget();
+        $this->controller->getResponse()->header($exception->responseHeader());
+        $this->controller->getResponse()->statusCode($exception->getCode());
         $viewVars = [
             'message'    => $message,
             'errors'     => $this->formatErrors($exception->getErrors()),
